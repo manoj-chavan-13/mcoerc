@@ -79,10 +79,11 @@ const NAV_DATA = [
     ],
   },
   { title: "Admissions", path: "/admissions" },
-  { title: "Contact", path: "/contact" },
+
   { title: "Training&Placement", path: "/t&p" },
   { title: "Alumni", path: "/alumni" },
   { title: "Gallery", path: "/gallery" },
+  { title: "Contact", path: "/contact" },
 ];
 
 const NOTICES = [
