@@ -1,8 +1,9 @@
 // App.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+// Import useLocation to access the current route
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Nav";
-import ScrollToTop from "./components/ScrollToTop"; // <--- IMPORT THIS
+import ScrollToTop from "./components/ScrollToTop";
 
 /* Page Imports */
 import Home from "./pages/Home";
@@ -36,14 +37,22 @@ import TrainingPlacement from "./pages/TrainingPlacement";
 import Alumni from "./pages/Alumni";
 import AboutFacilities from "./pages/AboutFacilities";
 import GalleryPage from "./pages/Gallery";
+import StudentPortal from "./pages/StudentPortal";
 
 export default function App() {
+  // 1. Get the current location
+  const location = useLocation();
+
+  // 2. Define the condition to hide Nav and Footer
+  const hideNavAndFooter = location.pathname === "/studentportal";
+
   return (
     <div className="app-root min-h-screen flex flex-col">
       {/* This triggers the scroll reset on every route change */}
       <ScrollToTop />
 
-      <Navbar />
+      {/* 3. Conditionally render Navbar */}
+      {!hideNavAndFooter && <Navbar />}
 
       <main className="flex-grow">
         <Routes>
@@ -54,6 +63,9 @@ export default function App() {
           <Route path="/t&p" element={<TrainingPlacement />} />
           <Route path="/alumni" element={<Alumni />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* Student Portal Route - No change needed here */}
+          <Route path="/studentportal" element={<StudentPortal />} />
 
           <Route path="/gallery" element={<GalleryPage />} />
 
@@ -83,7 +95,8 @@ export default function App() {
         </Routes>
       </main>
 
-      <Footer />
+      {/* 4. Conditionally render Footer */}
+      {!hideNavAndFooter && <Footer />}
     </div>
   );
 }

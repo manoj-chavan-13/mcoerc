@@ -136,7 +136,10 @@ export default function ProfessionalNavbar() {
               <a href="#" className="hover:text-white transition-colors">
                 Staff
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="/studentportal"
+                className="hover:text-white transition-colors"
+              >
                 Portal
               </a>
             </div>
