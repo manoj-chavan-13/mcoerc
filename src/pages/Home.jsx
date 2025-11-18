@@ -44,15 +44,6 @@ const SectionHeading = ({ subtitle, title, align = "center" }) => (
   </div>
 );
 
-const ScrollIndicator = () => (
-  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce text-slate-400 flex flex-col items-center gap-2">
-    <span className="text-[10px] font-bold uppercase tracking-widest">
-      Scroll
-    </span>
-    <ChevronDown size={20} />
-  </div>
-);
-
 /* --- 1. HERO SECTION (Full Screen) --- */
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center bg-white overflow-hidden px-6 py-20">
@@ -126,7 +117,6 @@ const HeroSection = () => (
         </div>
       </div>
     </div>
-    <ScrollIndicator />
   </section>
 );
 
